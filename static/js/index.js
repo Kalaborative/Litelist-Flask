@@ -16,11 +16,15 @@ class DeskSetup extends mojs.CustomShape {
 
 mojs.addShape('setup', DeskSetup);
 
+var $parent = $("#deskparent");
+
 var smokeOPTS = {
   shape: 'smokeline',
   scale: 0.1,
-  x: 'rand(-256, -238)',
-  y: {[10]: -30},
+  parent: $parent,
+  // x: 'rand(-256, -238)',
+  x: 'rand(130, 148)',
+  y: {[0]: -40},
   opacity: {1: 0, easing: 'cubic.out'},
   radius: 100,
   repeat: 999,
@@ -76,7 +80,12 @@ var smokeline7 = new mojs.Shape({...smokeOPTS, delay: 1820, fill: '#d9dd90'});
 
 var smokeline8 = new mojs.Shape({...smokeOPTS, delay: 2100, fill: '#747f91'});
 
-const setup = new mojs.Shape({shape: 'setup', radius: 100, x: -390, scale: 2, y: 20});
+const setup = new mojs.Shape({
+	shape: 'setup',
+	parent: $parent,
+	radius: 100,
+	scale: 2,
+});
 
 $(document).ready(function() {
 	smokeline1.play();
